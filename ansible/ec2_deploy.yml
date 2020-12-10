@@ -32,8 +32,9 @@
   connection: ssh
   
   tasks:
-    - name: Load exported file of nginx image
+    - name: Service
       command: sudo systemctl unmask docker.service
+    - name: Socket
       command: sudo systemctl unmask docker.socket
     - name: install docker
       apt:
