@@ -5,7 +5,7 @@
   tasks: 
     - name: Launch EC2 instance
       ec2: 
-        instance_type: t2.micro
+        instance_type: t2.small
         image: ami-085925f297f89fce1
         region: us-east-1
         key_name: keypass
@@ -45,7 +45,7 @@
       become: yes
     - name: Get project files from git
       git:
-        repo: 'https://github.com/AirFoxxx/4IT572_ZS_2020_circleci.git'
+        repo: 'https://github.com/MarekDobes/4IT572_ZS_2020_circleci.git'
         dest: ./app
     - name: Build docker with eshop
       shell: cd app && docker build -t myeshop:latest .
