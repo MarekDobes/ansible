@@ -5,7 +5,7 @@
   tasks: 
     - name: Launch EC2 instance
       ec2: 
-        instance_type: t2.small
+        instance_type: t2.micro
         image: ami-06451a6f16cf2d02d
         region: us-east-1
         key_name: keypass
@@ -32,6 +32,9 @@
   connection: ssh
   
   tasks:
+    - name: Load exported file of nginx image
+      command: sudo systemctl unmask docker.service
+      command: sudo systemctl unmask docker.socket
     - name: install docker
       apt:
         name: docker.io
