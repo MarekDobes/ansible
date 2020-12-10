@@ -38,10 +38,7 @@
         state: present
         update_cache: yes
       become: yes
-    - name: Service
       command: sudo systemctl unmask docker.service
-    - name: Socket
-      command: sudo systemctl unmask docker.socket
     - service:
         name: docker
         state: started
