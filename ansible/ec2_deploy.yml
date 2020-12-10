@@ -32,16 +32,16 @@
   connection: ssh
   
   tasks:
-    - name: Service
-      command: sudo systemctl unmask docker.service
-    - name: Socket
-      command: sudo systemctl unmask docker.socket
     - name: install docker
       apt:
         name: docker.io
         state: present
         update_cache: yes
       become: yes
+    - name: Service
+      command: sudo systemctl unmask docker.service
+    - name: Socket
+      command: sudo systemctl unmask docker.socket
     - service:
         name: docker
         state: started
