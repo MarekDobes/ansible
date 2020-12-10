@@ -45,14 +45,14 @@
       become: yes
     - name: Get project files from git
       git:
-        repo: 'https://github.com/MarekDobes/4IT572_ZS_2020_circleci.git'
+        repo: 'https://github.com/AirFoxxx/4IT572_ZS_2020_circleci.git'
         dest: ./app
     - name: Build docker with eshop
       shell: cd app && docker build -t myeshop:latest .
       become: yes
     - name: Run Docker with eshop
       shell: docker run -p 80:3000 myeshop
-      async: 90
+      async: 45
       poll: 0
       become: yes
     - wait_for:
